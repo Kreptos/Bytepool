@@ -51,7 +51,10 @@ d3.csv("data.csv").then(function(data){
 
     var values = data.map(function(d){return d["value"]});
 
-    svg.selectAll(".bar")
+
+    
+
+    var bars = svg.selectAll(".bar")
         .data(data)
         .enter()
         .append("rect")
@@ -61,11 +64,30 @@ d3.csv("data.csv").then(function(data){
         .attr("y", function(d){return y(d.value)})
         .attr("height", function(d){return height - y(d.value)})
         // .attr("class", function(d){console.log(height - y(d.value))})
-        .style("fill", "#3782E9")
+        .style("fill", "#3782E9");
+
+    var bars1 = svg.selectAll(".bar1")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("class", "bar1")
+        .attr("x", function(d, i){return x(i) - 3})
+        .attr("width", 8)
+        .attr("y", function(d){return y(d.value)})
+        .attr("height", function(d){return height - y(d.value)})
+        // .attr("class", function(d){console.log(height - y(d.value))});
+        .attr("opacity", 0);
+
+
+    var barsElements = bars.node();
+
+    bars1
         .on("mouseover", function(d, i){
             var bar = i.value;
+            
+            // console.log(bars[1]);
             d3.selectAll(".bar").style("fill", "#C4C4C4");
-            d3.select(this).style("fill", "#3782E9");
+            d3.selectAll(".bar").filter(function(d){return d===i}).style("fill", "#3782E9");
             d3.select('.info_value').html(bar+" ");
         })
         .on("mouseout", function(){
