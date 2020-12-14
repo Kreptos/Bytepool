@@ -369,7 +369,7 @@ input:focus {
 }
 
 .header-content .bread-crumbs__text {
-  padding: 10px 14px 9px;
+  padding: 10px 14px 10px;
 }
 
 .header-content .bread-crumbs__text p a {
@@ -386,6 +386,7 @@ input:focus {
   border-radius: 50%;
   background-color: #0db4aa;
   margin-right: 11px;
+  /* margin-bottom: 5px; */
 }
 
 .header-content .bread-crumbs .bread-last:after {
@@ -8208,7 +8209,7 @@ Copyright (c) 2015 Daniel Eden
 
 @media (max-width: 500px) {
   .header-content .bread-crumbs__text {
-    padding: 10px 10px 9px;
+    padding: 10px 10px 10px;
   }
 
   .header-content .super-link a .super-link__span-text {
